@@ -21,7 +21,9 @@ io.on('connection', (socket) => {
     });
 });
 
-
+app.post('/newchatroom',function(req,res){
+    res.sendFile(__dirname+'/chatroom.html');
+})
 
 app.post('/newfeed',function(req,res){
     Conversation.create({pain : 1}, function (err, Conversation) {

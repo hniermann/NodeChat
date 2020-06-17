@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <p> Start a new Feed</p>
+    <p> Enter a room</p>
     <form action="/newfeed" method="POST">
-        <input type="submit" value="Begin">
+        <input type="text"><input type="submit" value="Enter">
     </form>
-    <div id = 'm'>
-        <form action="">
-            <input id="n" autocomplete="off"/><button type= 'button' id = 'clicker'>Send</button>
-        </form>
-    </div>
-    <ul id="messages"></ul>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-            const socket = io();
-            const chatbox = document.getElementById('n');
-            const d = document.getElementById('messages');
-            function sender(){
-                var message = chatbox.value;
-                socket.emit('chat message',message);
-            }
-            socket.on('chat message', (msg) => {
-                const t = document.createElement('li');
-                t.textContent = msg;
-                d.appendChild(t);
-            });
-            const b = document.querySelector('#clicker');
-            b.addEventListener('click',sender);
-     </script>
+    <p> Start a new room</p>
+    <form action="/newchatroom" method = "POST">
+        <input type="submit" value="Start">
+    </form>
 </body>
 </html>
