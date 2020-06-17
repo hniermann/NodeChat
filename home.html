@@ -5,39 +5,28 @@
     <form action="/newfeed" method="POST">
         <input type="submit" value="Begin">
     </form>
-    <div id = 'm'>;
+    <div id = 'm'>
         <form action="">
-            <input id="n" autocomplete="off"/><button id = 'clicker'>Send</button>
+            <input id="n" autocomplete="off"/><button type= 'button' id = 'clicker'>Send</button>
         </form>
     </div>
     <ul id="messages"></ul>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
-            $(function () {
-                var socket = io();
-                $('form').submit(function(e) {
-                    e.preventDefault(); // prevents page reloading
-                    socket.emit('chat message', $('#n').val());
-                    $('#n').val('');
-                    return false;
-                });
-                socket.on('chat message', function(msg){
-                     $('#messages').append($('<li>').text(msg));
-                });
+            const socket = io();
+            const chatbox = document.getElementById('n');
+            const d = document.getElementById('messages');
+            function sender(){
+                var message = chatbox.value;
+                socket.emit('chat message',message);
+            }
+            socket.on('chat message', (msg) => {
+                const t = document.createElement('li');
+                t.textContent = msg;
+                d.appendChild(t);
             });
-    //         const socket = io();
-    //         const chatbox = document.getElementById('n');
-    //         const d = document.getElementById('m');
-    //         function sender(){
-    //             var message = chatbox.value;
-    //             socket.emit('chat message',message);
-    //         }
-    //         socket.on('chat message', (msg) => {
-    //             d.appendChild($('<div>').text(msg));
-    //         });
-    //         const b = document.querySelector('#clicker');
-    //         b.addEventListener('click',sender);
-    // </script>
+            const b = document.querySelector('#clicker');
+            b.addEventListener('click',sender);
+     </script>
 </body>
 </html>
