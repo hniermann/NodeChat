@@ -3,13 +3,14 @@ var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io') (http);
 var path = require('path');
-// var mongoose = require('mongoose');
-// var mongoDB = 'mongodb+srv://hjn80:painandsuffer@cluster0-sxq4m.azure.mongodb.net/videos?retryWrites=true&w=majority';
-// mongoose.connect(mongoDB, { useNewUrlParser: true });
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb+srv://hjn80:painandsuffer@cluster0-sxq4m.azure.mongodb.net/videos?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var Conversation = require('../messenger/models/convo');
+const { Console } = require('console');
 
 app.get('/',function(req,res) {
     res.sendFile(__dirname +'/home.html');
@@ -22,13 +23,27 @@ io.on('connection', (socket) => {
 });
 
 app.post('/newchatroom',function(req,res){
+    createConvo();
     res.sendFile(__dirname+'/chatroom.html');
 })
 
-app.post('/newfeed',function(req,res){
-    Conversation.create({pain : 1}, function (err, Conversation) {
+async function createConvo(){
+    var number = 1;
+    var loop = true;
+    while(loop){
+        loop = await Conversation.exists({Room : number});
+        if(loop){
+            number++;
+        }
+    }
+    const awesome_instance = Conversation.create({ Room: number }, function (err, awesome_instance) {
         if (err) return handleError(err);
-    });
+        // saved!
+     });
+     console.log(number);
+}
+
+app.post('/newfeed',function(req,res){
     res.sendFile(__dirname+'/newfeed.html');
 });
 

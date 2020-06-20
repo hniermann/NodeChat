@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var convoSchema = new Schema(
     {
-        pain : Number,
+        Room : Number,
     }
 );
 
