@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+    <p>Room #:</p><div id ='roomnumber'></div>
     <div id = 'm'>
         <div id="n"contenteditable = "true" autocomplete="off"></div><button type= 'button' id = 'clicker'>Send</button>
     </div>
@@ -12,15 +13,34 @@
             const d = document.getElementById('messages');
             function sender(){
                 var message = chatbox.textContent;
-                socket.emit('chat message',message);
+                var number = roomBox.textContent;
+                socket.emit('chat message', number, message);
             }
-            socket.on('chat message', (msg) => {
-                const t = document.createElement('li');
-                t.textContent = msg;
-                d.appendChild(t);
+            socket.on('chat message', (room,msg) => {
+                console.log(room+' Client Room');
+                const p = roomBox.textContent;
+                console.log(p);
+                if(p == room){
+                    const t = document.createElement('li');
+                    t.textContent = msg;
+                    d.appendChild(t);
+                }
             });
             const b = document.querySelector('#clicker');
             b.addEventListener('click',sender);
+
+            const roomBox = document.getElementById('roomnumber');
+            var roomSet = false;
+            socket.on('room number', (num) => {
+                console.log(num);
+                if(!roomSet){
+                    roomSet = true;
+                    roomBox.textContent = num.toString();
+                }
+            });
+
+            
+
      </script>
 </body>
 </html>

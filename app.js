@@ -4,6 +4,10 @@ var http = require('http').createServer(app);
 var io = require('socket.io') (http);
 var path = require('path');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 var mongoDB = 'mongodb+srv://hjn80:painandsuffer@cluster0-sxq4m.azure.mongodb.net/videos?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
@@ -17,14 +21,16 @@ app.get('/',function(req,res) {
 });
 
 io.on('connection', (socket) => {
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
+    socket.on('chat message', (room, msg) => {
+        console.log(room+' Server');
+        io.emit('chat message',room, msg);
     });
 });
 
 app.post('/newchatroom',function(req,res){
-    createConvo();
+    const roomNumber = createConvo();
     res.sendFile(__dirname+'/chatroom.html');
+    chatSetup(roomNumber);
 })
 
 async function createConvo(){
@@ -40,11 +46,33 @@ async function createConvo(){
         if (err) return handleError(err);
         // saved!
      });
-     console.log(number);
+     return number;
+}
+
+async function chatSetup(roomNumber){
+    var num = await roomNumber;
+    var numString = num.toString();
+    io.emit('room number',num);
 }
 
 app.post('/newfeed',function(req,res){
     res.sendFile(__dirname+'/newfeed.html');
+});
+
+app.post('/joinroom',function(req,res){
+    const inputRoom = req.body.room;
+    console.log(inputRoom);
+    Conversation.exists({Room : inputRoom}).then(result => {
+        if(result){
+            res.sendFile(__dirname+'/chatroom.html');
+            setTimeout(function(){
+                io.emit('room number',inputRoom);
+            },1200)
+        }
+        else{
+            
+        }
+    });
 });
 
 app.get('/feed.js',function(req,res){
