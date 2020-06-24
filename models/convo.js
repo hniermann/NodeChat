@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var convoSchema = new Schema(
     {
         Room : Number,
+        UserNumber : Number,
     }
 );
 

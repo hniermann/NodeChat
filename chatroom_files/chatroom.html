@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel='stylesheet' type="text/css" href='../chatroom_files/styles.css'>
+    <title>Chatroom</title>
+</head>
+<body id='body'>
+    <div class="roomstyle">
+        <p>Room #:</p><div id ='roomnumber'></div>
+    </div>
+    <div class="users">
+        <p>Number of Users:</p><div id='usernumber'></div>
+    </div>
+    <div class="messageEnter" id = 'm'>
+        <div class='enter' id="n"contenteditable = "true" autocomplete="off"></div>
+        <button class='send' type= 'button' id = 'clicker'>Send</button>
+    </div>
+    <div class="messageArea" id="messages">
+        <div class="one" id="1"></div>
+        <div class="two" id="2"></div>
+        <div class="three" id="3"></div>
+        <div class="four" id="4"></div>
+        <div class="five" id="5"></div>
+        <div class="six" id="6"></div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+            const socket = io();
+            const chatbox = document.getElementById('n');
+            const d = document.getElementById('messages');
+
+            const one = document.getElementById('1');
+            const two = document.getElementById('2');
+            const three = document.getElementById('3');
+            const four = document.getElementById('4');
+            const five = document.getElementById('5');
+            const six = document.getElementById('6');
+
+            function sender(){
+                var message = chatbox.textContent;
+                var number = roomBox.textContent;
+                socket.emit('chat message', number, message);
+            }
+            socket.on('chat message', (room,msg) => {
+                const p = roomBox.textContent;
+                if(p == room){
+                    one.textContent = two.textContent;
+                    two.textContent = three.textContent;
+                    three.textContent = four.textContent;
+                    four.textContent = five.textContent;
+                    five.textContent = six.textContent;
+                    six.textContent = msg;
+                    chatbox.textContent = "";
+                }
+            });
+            const b = document.querySelector('#clicker');
+            b.addEventListener('click',sender);
+
+            const roomBox = document.getElementById('roomnumber');
+            var roomSet = false;
+            socket.on('room number', (num) => {
+                console.log(num);
+                if(!roomSet){
+                    roomSet = true;
+                    roomBox.textContent = num.toString();
+                }
+            });
+
+            const numUsers = document.getElementById('usernumber');
+            socket.on('users', (num) => {
+                numUsers.textContent = num;
+            });
+
+     </script>
+</body>
+</html>

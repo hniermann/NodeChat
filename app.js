@@ -13,8 +13,16 @@ mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+
 var Conversation = require('../messenger/models/convo');
-const { Console } = require('console');
+
+Conversation.deleteMany({},(err) => {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log('Success');
+    }
+});
 
 app.get('/',function(req,res) {
     res.sendFile(__dirname +'/home.html');
@@ -22,15 +30,22 @@ app.get('/',function(req,res) {
 
 io.on('connection', (socket) => {
     socket.on('chat message', (room, msg) => {
-        console.log(room+' Server');
         io.emit('chat message',room, msg);
     });
 });
 
 app.post('/newchatroom',function(req,res){
-    const roomNumber = createConvo();
-    res.sendFile(__dirname+'/chatroom.html');
-    chatSetup(roomNumber);
+    res.sendFile(__dirname+'/chatroom_files/chatroom.html');
+    createConvo().then(roomNumber => {
+        setTimeout(() => {
+            var num = roomNumber;
+            var numString = num.toString();
+            io.emit('room number',num);
+            var start = 1;
+            start = start.toString();
+            io.emit('users',start)
+        },2000);
+    });
 })
 
 async function createConvo(){
@@ -42,17 +57,20 @@ async function createConvo(){
             number++;
         }
     }
-    const awesome_instance = Conversation.create({ Room: number }, function (err, awesome_instance) {
+    const awesome_instance = Conversation.create({ Room: number , UserNumber : 1}, function (err, awesome_instance) {
         if (err) return handleError(err);
         // saved!
      });
      return number;
 }
 
-async function chatSetup(roomNumber){
-    var num = await roomNumber;
+function chatSetup(roomNumber){
+    var num = roomNumber;
     var numString = num.toString();
     io.emit('room number',num);
+    var start = 1;
+    start = start.toString();
+    io.emit('users',start)
 }
 
 app.post('/newfeed',function(req,res){
@@ -61,18 +79,30 @@ app.post('/newfeed',function(req,res){
 
 app.post('/joinroom',function(req,res){
     const inputRoom = req.body.room;
-    console.log(inputRoom);
+    
     Conversation.exists({Room : inputRoom}).then(result => {
         if(result){
-            res.sendFile(__dirname+'/chatroom.html');
+            var numberOfUsers = 0;
+            Conversation.findOne({Room : inputRoom}).then(doc =>{
+                doc.UserNumber = doc.UserNumber+1;
+                doc.save();
+                numberOfUsers = doc.UserNumber;
+            });
+            res.sendFile(__dirname+'/chatroom_files/chatroom.html');
             setTimeout(function(){
                 io.emit('room number',inputRoom);
-            },1200)
+                io.emit('chat message',inputRoom,"A new user connected!");
+                io.emit('users',numberOfUsers);
+            },1200);
         }
         else{
             
         }
     });
+});
+
+app.get('/chatroom_files/styles.css',function(req,res){
+    res.sendFile(__dirname+'/chatroom_files/styles.css');
 });
 
 app.get('/feed.js',function(req,res){
