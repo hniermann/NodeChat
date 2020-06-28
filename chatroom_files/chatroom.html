@@ -10,7 +10,7 @@
         <p>Room #:</p><div id ='roomnumber'></div>
     </div>
     <div class="users">
-        <p>Number of Users:</p><div id='usernumber'></div>
+        <p>Number of Users:</p><div id='usernumber'>1</div>
     </div>
     <div class="messageEnter" id = 'm'>
         <div class='enter' id="n"contenteditable = "true" autocomplete="off"></div>
@@ -37,8 +37,17 @@
             const five = document.getElementById('5');
             const six = document.getElementById('6');
 
+            var userID = null;
+            socket.on('user id', (room, id) => {
+                console.log(id);
+                if(userID == null){
+                    userID = id.toString();
+                }
+            });
+
             function sender(){
                 var message = chatbox.textContent;
+                message = "User"+userID+": "+message;
                 var number = roomBox.textContent;
                 socket.emit('chat message', number, message);
             }
@@ -60,7 +69,6 @@
             const roomBox = document.getElementById('roomnumber');
             var roomSet = false;
             socket.on('room number', (num) => {
-                console.log(num);
                 if(!roomSet){
                     roomSet = true;
                     roomBox.textContent = num.toString();
@@ -68,9 +76,16 @@
             });
 
             const numUsers = document.getElementById('usernumber');
-            socket.on('users', (num) => {
-                numUsers.textContent = num;
+            socket.on('users', (room,num) => {
+                if(room.toString() == roomBox.textContent.toString()){
+                    numUsers.textContent = num;
+                }
             });
+
+            window.addEventListener("beforeunload", function(e){
+                console.log('e');
+                socket.emit('user leaving', roomBox.textContent.toString());
+            }, false);
 
      </script>
 </body>

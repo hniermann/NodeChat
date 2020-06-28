@@ -9,44 +9,89 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoDB = 'mongodb+srv://hjn80:painandsuffer@cluster0-sxq4m.azure.mongodb.net/videos?retryWrites=true&w=majority';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 var Conversation = require('../messenger/models/convo');
+var User = require('../messenger/models/user');
 
 Conversation.deleteMany({},(err) => {
     if (err) {
         console.log(err)
     } else {
-        console.log('Success');
+        console.log('Conversations cleared');
+    }
+});
+
+User.deleteMany({},(err) => {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log('Users cleared');
     }
 });
 
 app.get('/',function(req,res) {
-    res.sendFile(__dirname +'/home.html');
+    createUser().then(usernum => {
+        res.sendFile(__dirname +'/home_files/home.html');
+        setTimeout(() => {
+            io.emit('currUser',usernum);
+        },1200);
+    });
+});
+
+app.get('/home_files/styles.css',function(req,res) {
+    res.sendFile(__dirname+'/home_files/styles.css');
 });
 
 io.on('connection', (socket) => {
     socket.on('chat message', (room, msg) => {
         io.emit('chat message',room, msg);
     });
+    socket.on('user leaving' , (r) => {
+        r = r*1;
+        Conversation.findOne({Room : r}).then(doc => {
+            doc.Users = doc.Users-1;
+            doc.save();
+            io.emit('users' , r , doc.Users);
+            io.emit('chat message', r, "A user disconnected!");
+        }).catch(err => console.log(err));
+    });
+    
 });
 
+
 app.post('/newchatroom',function(req,res){
+    const user = req.body.userstart;
     res.sendFile(__dirname+'/chatroom_files/chatroom.html');
     createConvo().then(roomNumber => {
         setTimeout(() => {
             var num = roomNumber;
             var numString = num.toString();
             io.emit('room number',num);
-            var start = 1;
-            start = start.toString();
-            io.emit('users',start)
-        },2000);
+            io.emit('user id', num, user);
+        },1200);
     });
 })
+
+async function createUser(){
+    var number = 1;
+    var loop = true;
+    while(loop){
+        loop = await User.exists({User : number});
+        if(loop){
+            number++;
+        }
+    }
+    const awesome_instance = User.create({ User : number}, function (err, awesome_instance) {
+        if (err) return handleError(err);
+        // saved!
+     });
+     return number;
+}
+
 
 async function createConvo(){
     var number = 1;
@@ -57,7 +102,7 @@ async function createConvo(){
             number++;
         }
     }
-    const awesome_instance = Conversation.create({ Room: number , UserNumber : 1}, function (err, awesome_instance) {
+    const awesome_instance = Conversation.create({ Room: number , Users : 1}, function (err, awesome_instance) {
         if (err) return handleError(err);
         // saved!
      });
@@ -68,9 +113,6 @@ function chatSetup(roomNumber){
     var num = roomNumber;
     var numString = num.toString();
     io.emit('room number',num);
-    var start = 1;
-    start = start.toString();
-    io.emit('users',start)
 }
 
 app.post('/newfeed',function(req,res){
@@ -79,24 +121,30 @@ app.post('/newfeed',function(req,res){
 
 app.post('/joinroom',function(req,res){
     const inputRoom = req.body.room;
+    const use = req.body.user;
+
     
     Conversation.exists({Room : inputRoom}).then(result => {
         if(result){
             var numberOfUsers = 0;
             Conversation.findOne({Room : inputRoom}).then(doc =>{
-                doc.UserNumber = doc.UserNumber+1;
+                doc.Users = doc.Users+1;
                 doc.save();
-                numberOfUsers = doc.UserNumber;
+                numberOfUsers = doc.Users;
             });
             res.sendFile(__dirname+'/chatroom_files/chatroom.html');
             setTimeout(function(){
                 io.emit('room number',inputRoom);
                 io.emit('chat message',inputRoom,"A new user connected!");
-                io.emit('users',numberOfUsers);
+                io.emit('users', inputRoom, numberOfUsers);
+                io.emit('user id', inputRoom, use);
             },1200);
         }
         else{
-            
+            io.emit('error',use);
+            setTimeout( () => {
+                res.sendFile(__dirname +'/home_files/home.html');
+            },1400);
         }
     });
 });

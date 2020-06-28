@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NodeChat</title>
+    <link rel="stylesheet" type='text/css' href='../home_files/styles.css'>
+</head>
+<body>
+    <div class="title">
+        <h1 class="bigtitle">NodeChat</h1>
+        <h5 class="summary">A fast, free, and secure messaging application</h5>
+    </div>
+    <div class="forms">
+        <div id="e" class="enter">
+            <p> Enter a chatroom</p>
+        </div>
+        <div class="input">
+            <form action="/joinroom" method="POST">
+                <input class="roomEnter" type="number" maxlength="4" minLength="1"placeholder="Room Number" name="room" required><input class="joinRoom" type="submit" value="Enter">
+                <input id = "hid" type = "hidden" name = "user" value = "" />
+            </form>
+        </div>
+        <div class="start">
+            <p> Start a new chatroom</p>
+        </div>
+        <div class="create">
+            <form action="/newchatroom" method = "POST">
+                <input class="button" type="submit" value="Start">
+                <input id= "hidstart" type ="hidden" name="userstart" value="" />
+            </form>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        var user = 0;
+        var done = false;
+        socket.on('currUser', (num) =>{
+            if(!done){
+                user = num;
+                document.getElementById('hid').value = user;
+                document.getElementById('hidstart').value = user;
+            }
+        });
+        const errorBar = document.getElementById('e');
+        socket.on('error', (use) => {
+            if(use == user){
+                var error = document.createElement('p');
+                error.textContent = "Invalid Room Number";
+                errorBar.appendChild(error);
+            }
+        });
+    </script>
+</body>
+</html>
