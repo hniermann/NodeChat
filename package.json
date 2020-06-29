@@ -1,19 +1,10 @@
 {
   "name": "messenger",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.14.0",
-    "npm" : "6.13.4"
-  },
-  "description": "Basic messenging app/video feed",
+  "description": "basic chat app",
   "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Henry Niermann",
-  "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
@@ -21,6 +12,9 @@
     "socket.io": "^2.3.0"
   },
   "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hniermann/NodeChat.git"
@@ -29,6 +23,8 @@
     "chat",
     "app"
   ],
+  "author": "Henry Niermann",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/hniermann/NodeChat/issues"
   },
