@@ -18,8 +18,8 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
-var Conversation = require('C:/Users/henry/odin_project/messenger/models/convo');
-var User = require('C:/Users/henry/odin_project/messenger/models/user');
+var Conversation = require(__dirname+'/models/convo');
+var User = require(__dirname+'/models/user');
 
 Conversation.deleteMany({},(err) => {
     if (err) {
