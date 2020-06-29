@@ -1,4 +1,6 @@
 var express = require('express');
+var compression = require('compression');
+
 var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io') (http);
@@ -7,8 +9,10 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression());
 
-var mongoDB = 'mongodb+srv://hjn80:painandsuffer@cluster0-sxq4m.azure.mongodb.net/videos?retryWrites=true&w=majority';
+var dev_db_url = 'mongodb+srv://hjn80:painandsuffer@cluster0-sxq4m.azure.mongodb.net/videos?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
