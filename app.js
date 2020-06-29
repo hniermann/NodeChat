@@ -161,7 +161,6 @@ app.get('/feed.js',function(req,res){
     res.sendFile(__dirname+'/feed.js');
 });
 
-var port = process.env.PORT || 3000;
-http.listen(port,function() {
+http.listen(process.env.PORT || 3000,function() {
     console.log("Listening on 3000!");
 });
