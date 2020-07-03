@@ -1,0 +1,12 @@
+html{
+    margin: 0;
+    height: 100%;
+}
+body{
+    margin: 0;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1/5 auto;
+    background-color:  rgb(45, 160, 199);
+}
