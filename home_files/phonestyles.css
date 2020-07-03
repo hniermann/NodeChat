@@ -14,8 +14,8 @@ body{
     margin-right: auto;
     margin-left: auto;
     margin-bottom: auto;
-    width: 30%;
-    height: 45%;
+    width: 90%;
+    height: 95%;
     grid-row-start: 2;
     grid-column-start: 1;
     background-color: whitesmoke;
@@ -72,7 +72,7 @@ body{
 }
 .bigtitle{
     text-align: center;
-    font-size: 80px;
+    font-size: 300px;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
@@ -86,7 +86,7 @@ body{
     
 }
 .summary{
-    font-size: 20px;
+    font-size: 80px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
