@@ -7,6 +7,102 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1/5 auto;
+    grid-template-rows: 1/4 auto;
     background-color:  rgb(45, 160, 199);
+}
+.forms{
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    width: 30%;
+    height: 45%;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: 1/4 1/4 1/4 1/4;
+    grid-template-columns: auto;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 5px 5px rgb(25, 131, 167);
+}
+.enter,.input,.start,.create{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+.enter,.start,.create{
+    margin: auto;
+}
+.enter{
+    grid-row-start: 1;
+}
+.input{
+    grid-row-start:2;
+    grid-row-end:2;
+}
+.start{
+    grid-row-start: 3;
+}
+.create{
+    grid-row-start: 4;
+    margin: auto;
+    margin-bottom: 5px;
+    background-color:  rgb(25, 131, 167);
+    color: white;
+}
+.roomEnter{
+    margin-right: 10px;
+    margin-left: 10px;
+    border-style: inset;
+    border-radius: 20px;
+    border-color: lightgray;
+    width: 50%;
+}
+.joinRoom{
+    margin-left: 20px;
+    width: 20%;
+    background-color:  rgb(25, 131, 167);
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+}
+.button{
+    background-color:  rgb(25, 131, 167);
+    font-family: 'Courier New', Courier, monospace;
+    color:whitesmoke;
+}
+.bigtitle{
+    text-align: center;
+    font-size: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column: 1;
+    background-color: rgb(45, 160, 199);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: whitesmoke;
+    
+}
+.summary{
+    font-size: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color:  rgb(45, 160, 199);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: whitesmoke;
+    
+
+}
+.title{
+    margin: auto;
+}
+.input:invalid{
+    border: 2px dashed red;
 }
