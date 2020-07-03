@@ -50,6 +50,10 @@ app.get('/home_files/styles.css',function(req,res) {
     res.sendFile(__dirname+'/home_files/styles.css');
 });
 
+app.get('/home_files/phonestyles.css',function(req,res) {
+    res.sendFile(__dirname+'/home_files/phonestyles.css');
+});
+
 io.on('connection', (socket) => {
     socket.on('chat message', (room, msg) => {
         io.emit('chat message',room, msg);
