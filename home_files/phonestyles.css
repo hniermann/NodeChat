@@ -48,12 +48,11 @@ body{
     grid-row-start: 4;
     margin: auto;
     margin-bottom: 5px;
-    background-color:  rgb(25, 131, 167);
     color: white;
 }
 .roomEnter{
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
     border-style: inset;
     border-radius: 20px;
     border-color: lightgray;
@@ -62,12 +61,13 @@ body{
 .joinRoom{
     margin-left: 20px;
     width: 20%;
-    background-color:  rgb(25, 131, 167);
     color: whitesmoke;
     font-family: 'Courier New', Courier, monospace;
 }
 .button{
-    background-color:  rgb(25, 131, 167);
+    width: 80%;
+    height: 60%;
+    margin: auto;
     font-family: 'Courier New', Courier, monospace;
     color:whitesmoke;
 }
