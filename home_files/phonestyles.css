@@ -55,10 +55,10 @@ body{
     grid-row-end:4;
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -90%);
+    transform: translate(-50%, -90%);
     color: rgb(25, 131, 167);
 }
 
