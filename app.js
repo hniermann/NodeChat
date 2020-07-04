@@ -161,6 +161,10 @@ app.get('/chatroom_files/styles.css',function(req,res){
     res.sendFile(__dirname+'/chatroom_files/styles.css');
 });
 
+app.get('/chatroom_files/phonestyles.css',function(req,res){
+    res.sendFile(__dirname+'/chatroom_files/phonestyles.css');
+});
+
 app.get('/feed.js',function(req,res){
     res.sendFile(__dirname+'/feed.js');
 });
