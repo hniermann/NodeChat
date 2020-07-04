@@ -78,10 +78,11 @@ body{
     margin: 0;
     position: absolute;
     left: 50%;
+    top: 100%;
     height: 150px;
     width: 500px;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    -ms-transform: translate(-100%,-50%);
+    transform: translate(-100%,-50%);
     font-family: 'Courier New', Courier, monospace;
     color:whitesmoke;
     background-color:  rgb(25, 131, 167);

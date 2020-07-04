@@ -3,8 +3,8 @@ body {
     margin: 0;
     height: 100%;
     background-color: rgb(45, 160, 199);
-    grid-template-columns: auto;
-    grid-template-rows: 20% 60% 20%;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 70% 15%;
 }
 html {
     margin: 0;
@@ -27,6 +27,7 @@ html {
     color: whitesmoke;
 }
 .messageEnter {
+    align-self: auto;
     font-size: 40px;
     display: grid;
     padding: 5px;
@@ -34,7 +35,7 @@ html {
     grid-template-rows: auto;
     grid-row-start:3;
     background: whitesmoke;
-    width: 95%;
+    width: 90%;
     height: 90%;
     margin-right: auto;
     margin-left: auto;
@@ -44,6 +45,7 @@ html {
     box-shadow: 5px 5px rgb(25, 131, 167);
 }
 .enter {
+    align-self: auto;
     width: 95%;
     height: 80%;
     margin: auto;
@@ -58,10 +60,10 @@ html {
 .send {
     background-color:  rgb(25, 131, 167);
     font-family: 'Courier New', Courier, monospace;
-    margin: 4px;
+    margin: 10px;
     font-size: 40px;
     color: whitesmoke;
-    height: 90%;
+    height: 70%;
 }
 
 .one{
@@ -122,7 +124,7 @@ html {
     margin-right:auto;
     margin-top: auto;
     margin-bottom: auto;
-    
+    align-self: auto;
     border-radius: 20px;
     background-color: whitesmoke;
     grid-row-start:2;
