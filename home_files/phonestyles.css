@@ -58,19 +58,20 @@ body{
 }
 
 .roomEnter{
-    margin-right: 20px;
-    margin-left: 10px;
+    font-size: 40px;
     border-style: inset;
     border-radius: 20px;
     border-color: lightgray;
-    width: 50%;
+    width: 90%;
     height: 150px;
 }
 .joinRoom{
-    margin-left: 20px;
-    width: 200px;
+    font-size: 40px;
+    margin-top: 20px;
+    width: 500px;
     height: 150px;
     color: whitesmoke;
+    background-color:  rgb(25, 131, 167);
     font-family: 'Courier New', Courier, monospace;
 }
 .button{
@@ -79,12 +80,13 @@ body{
     top: 50%;
     left: 50%;
     height: 150px;
-    width: 500;
+    width: 500px;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-family: 'Courier New', Courier, monospace;
     color:whitesmoke;
     background-color:  rgb(25, 131, 167);
+    font-size: 40px;
 }
 .bigtitle{
     text-align: center;
