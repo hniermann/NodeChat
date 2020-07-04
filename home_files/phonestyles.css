@@ -38,7 +38,12 @@ body{
     grid-row-start: 1;
 }
 .input{
-    display: inline;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     grid-row-start:2;
     grid-row-end:2;
 }
@@ -47,20 +52,19 @@ body{
 }
 .create{
     grid-row-start: 4;
-    margin: auto;
-    height: 30px;
-    width: 50px;
+    position: relative;
     margin-bottom: 5px;
     color: rgb(25, 131, 167);
 }
 
 .roomEnter{
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 20px;
+    margin-left: 10px;
     border-style: inset;
     border-radius: 20px;
     border-color: lightgray;
     width: 50%;
+    height: 150px;
 }
 .joinRoom{
     margin-left: 20px;
@@ -70,9 +74,14 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 .button{
-    width: 200px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     height: 150px;
-    margin-bottom: auto;
+    width: 500;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     font-family: 'Courier New', Courier, monospace;
     color:whitesmoke;
     background-color:  rgb(25, 131, 167);
