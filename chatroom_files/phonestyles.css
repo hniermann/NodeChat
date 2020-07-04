@@ -15,13 +15,20 @@ html {
     margin: auto;
     text-align: right;
     grid-row-start:1;
+    grid-column-start: 2;
     font-family: 'Courier New', Courier, monospace;
     color: whitesmoke;
+}
+.info {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
 }
 .users{
     font-size: 40px;
     margin: auto;
     grid-row-start:1;
+    grid-column-start: 1;
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
     color: whitesmoke;
@@ -64,6 +71,7 @@ html {
     font-size: 40px;
     color: whitesmoke;
     height: 70%;
+    width: 70%;
 }
 
 .one{
