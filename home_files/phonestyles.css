@@ -52,19 +52,16 @@ body{
 }
 .create{
     grid-row-start: 4;
-    position: relative;
-    margin-bottom: 5px;
-    color: rgb(25, 131, 167);
-}
-.lowerform{
+    grid-row-end:4;
     margin: 0;
     position: absolute;
+    top: 50%;
     left: 50%;
-    top: 0%;
-    
-    -ms-transform: translate(-50%,-0%);
-    transform: translate(-50%,-0%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: rgb(25, 131, 167);
 }
+
 
 .roomEnter{
     font-size: 40px;
