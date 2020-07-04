@@ -127,6 +127,7 @@ html {
     display: grid;
     grid-template-rows: auto auto auto auto auto auto;
     grid-template-columns: auto;
+    vertical-align: top;
     
     margin-left: auto;
     margin-right:auto;
