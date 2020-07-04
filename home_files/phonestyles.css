@@ -38,10 +38,9 @@ body{
     grid-row-start: 1;
 }
 .input{
+    display: inline;
     grid-row-start:2;
     grid-row-end:2;
-    height: 80%;
-    width: 80%;
 }
 .start{
     grid-row-start: 3;
@@ -65,15 +64,15 @@ body{
 }
 .joinRoom{
     margin-left: 20px;
-    width: 80px;
-    height: 50px;
+    width: 200px;
+    height: 150px;
     color: whitesmoke;
     font-family: 'Courier New', Courier, monospace;
 }
 .button{
-    width: 80px;
-    height: 50px;
-    margin: auto;
+    width: 200px;
+    height: 150px;
+    margin-bottom: auto;
     font-family: 'Courier New', Courier, monospace;
     color:whitesmoke;
     background-color:  rgb(25, 131, 167);
