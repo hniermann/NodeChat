@@ -81,7 +81,7 @@ html {
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom:10px;
-    vertical-align: top;
+    vertical-align: center;
     position: auto;
 }
 .two{
@@ -91,7 +91,7 @@ html {
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom:10px;
-    vertical-align: top;
+    vertical-align: center;
     position: auto;
 }
 .three{
@@ -101,7 +101,7 @@ html {
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom:10px;
-    vertical-align: top;
+    vertical-align: center;
     position: auto;
 }
 .four{
@@ -111,7 +111,7 @@ html {
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom:10px;
-    vertical-align: top;
+    vertical-align: center;
     position: auto;
 }
 .five{
@@ -121,7 +121,7 @@ html {
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom:10px;
-    vertical-align: top;
+    vertical-align: center;
     position: auto;
 }
 .six{
@@ -131,7 +131,7 @@ html {
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom:10px;
-    vertical-align: top;
+    vertical-align: center;
     position: auto;
 }
 
@@ -139,7 +139,7 @@ html {
     display: grid;
     grid-template-rows: auto auto auto auto auto auto;
     grid-template-columns: auto;
-    vertical-align: top;
+    vertical-align: center;
     
     margin-left: auto;
     margin-right:auto;
