@@ -21,14 +21,14 @@ body{
     background-color: whitesmoke;
     border-radius: 20px;
     display: grid;
-    grid-template-rows: 1/4 1/4 1/4 1/4;
+    grid-template-rows: 25% 25% 25% 25%;
     grid-template-columns: auto;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     box-shadow: 5px 5px rgb(25, 131, 167);
 }
 .enter,.input,.start,.create{
     font-size: 40px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     color: black;
 }
 .enter,.start,.create{
@@ -49,10 +49,12 @@ body{
 .create{
     grid-row-start: 4;
     margin: auto;
+    height: 30px;
+    width: 50px;
     margin-bottom: 5px;
-    color: white;
-    background-color:  rgb(25, 131, 167);
+    color: rgb(25, 131, 167);
 }
+
 .roomEnter{
     margin-right: 5px;
     margin-left: 5px;
@@ -63,15 +65,16 @@ body{
 }
 .joinRoom{
     margin-left: 20px;
-    width: 20%;
+    width: 80px;
+    height: 50px;
     color: whitesmoke;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 .button{
-    width: 80%;
-    height: 60%;
+    width: 80px;
+    height: 50px;
     margin: auto;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     color:whitesmoke;
     background-color:  rgb(25, 131, 167);
 }
