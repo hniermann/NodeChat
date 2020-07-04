@@ -82,7 +82,7 @@ html {
     margin-left: 10px;
     margin-bottom:10px;
     vertical-align: top;
-    position: fixed;
+    position: auto;
 }
 .two{
     grid-row-start: 2;
@@ -92,7 +92,7 @@ html {
     margin-left: 10px;
     margin-bottom:10px;
     vertical-align: top;
-    position: fixed;
+    position: auto;
 }
 .three{
     grid-row-start: 3;
@@ -102,7 +102,7 @@ html {
     margin-left: 10px;
     margin-bottom:10px;
     vertical-align: top;
-    position: fixed;
+    position: auto;
 }
 .four{
     grid-row-start: 4;
@@ -112,7 +112,7 @@ html {
     margin-left: 10px;
     margin-bottom:10px;
     vertical-align: top;
-    position: fixed;
+    position: auto;
 }
 .five{
     grid-row-start: 5;
@@ -122,7 +122,7 @@ html {
     margin-left: 10px;
     margin-bottom:10px;
     vertical-align: top;
-    position: fixed;
+    position: auto;
 }
 .six{
     grid-row-start: 6;
@@ -132,7 +132,7 @@ html {
     margin-left: 10px;
     margin-bottom:10px;
     vertical-align: top;
-    position: fixed;
+    position: auto;
 }
 
 .messageArea {
@@ -155,5 +155,5 @@ html {
     font-size: 40px;
     color: black;
     box-shadow: 5px 5px rgb(25, 131, 167);
-    position: fixed;
+    position: auto;
 }
