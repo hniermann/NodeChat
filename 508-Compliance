@@ -1,0 +1,117 @@
+508 Compliance Checklist pertaining to WCAG 2.0 requiremnts
+
+Section A: General Visual Checks
+A1 - Is the site free from content that flashes more than 3 times per second?
+
+A2 - Can all text be resized up to 200% without degrading quality/understandability?
+
+A3 - Is there more than one way to locate a web page? (Site Search, Site Map, etc.)
+
+A4 - Is the order of navigational elements consistent across the site?
+
+A5 - Can auto updating, moving, blinking, and scrolling content be paused or adjusted?
+
+A6 - Are all site controlled documents (PDF, Word, etc) fully accessible or have a conforming alternate version exit disclaimer icon?
+
+A7 - If there are any time limits on interacting with content, can they be turned off, adjusted, or extended?
+
+A8 - Are operational instructions that rely on sensory characteristics avoided? (Ex. Click the square, blue button to continue)
+
+A9 - Is the site free from pages that re-direct after a timeout?
+
+A10 - Are elements with the same functionality consistently identified across pages?
+
+A11 - Do headings accurately describe the content they visually define?
+
+Section B: General Code Inspection
+B1 - Is the default language of the page set?
+
+B2 - Has the language been properly set for foreign words or phrases?
+ 
+B3 - Is the page free from major errors defined in W3 Failure #70 exit disclaimer icon when run against an HTML validator exit disclaimer icon?
+
+B4 - Are duplicate ID values on the same page avoided?
+
+B5 - With styles disabled, is the reading order of the content logical?
+
+B6 - Do all frames have a title attribute that accurately defines the content?
+ 
+B7 - Does the page have a title attribute that accurately defines the content?
+
+B8 - Does content intended to be accessible by assistive technology refrain from using display:none or aria-hidden=true?
+
+B9 - If ARIA is present, does the ARIA coding both meet ARIA specifications and give an accurate representation of the content?
+
+B10 - Are Fieldset tags only used for form fields? (Not to make a box around a piece of content)?
+
+Section C: Keyboard Navigation
+C1 - Are all elements that can be operated by a mouse also able to be operated by keyboard?
+
+C2 - When tabbing through the page, do all elements have a clear visual indication that they have focus?
+
+C3 - When tabbing the page, are keyboard traps avoided?
+
+C4 - Is the tab order of the page logical?
+
+C5 - When tabbing through the page, are changes of context exit disclaimer icon avoided when an element receives focus?
+
+C6 - Is there a method to bypass blocks of repetitive content (such as navigation)?
+
+Section D: Sites containing Color
+D1 - Is information conveyed by methods other than color alone?
+
+D2 - Does all text (with the exception of logos) have a contrast ratio of 4.5:1 or greater no matter the font size?
+
+Section E: Sites containing Links
+Not applicable
+ 
+Section F: Sites containing Images
+Not applicable
+
+Section G: Sites containing Audio/Video
+Not applicable
+
+Section H: Sites containing Tables
+Not applicable
+
+Section i: Sites containing semantic structure
+i1 - Are all visual bulleted and numbered lists correctly coded with HTML list tags?
+
+i2 - Are visual headings correctly coded with HTML heading tags? (<h1>, <h2>, etc)
+
+i3 - Do heading tags follow a logical hierarchical progression?
+
+i4 - Are heading tags only used on text that defines a section of content?
+
+i5 - Is emphasized or special text correctly coded with HTML heading tags? (<em>, <strong>, <sup>, etc)
+
+Section J: Sites containing Forms
+J1 - Are all form fields correctly coded with descriptive and accurate labels?
+
+J2 - Do grouped form fields have correctly coded fieldset and legend tags?
+
+J3 - Are form validation errors clear and accurately identified in text?
+
+J4 - Is the form free of making a selection when attempting to navigate the options? (only submits when user makes a selection)
+
+J5 - Are Orphan label tags avoided?
+
+Section K: Sites containing common elements / dynamic content
+
+K1 - Is the role of an element (eg Button) properly defined , accurate, and communicated to assistive technology?
+
+K2 - Is the state of an element (expanded or collapsed) properly defined , accurate, and communicated to assistive technology?
+
+K3 - Are modal dialogues exit disclaimer icon able to be used with keyboard alone and assistive technology? Focus management, hiding underlying content, etc.
+
+K4 - Are carousels exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to pause, navigate to individual items, etc.
+
+K5 - Are menus exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to expand and navigate subitems
+
+K6 - Are expandable/collapsible accordian elements exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to expand and navigate subitems
+
+K7 - Are Tabbed Interfaces exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to tell active tab and navigate to appropriate content
+
+K8 - Are CAPTCHA interfaces exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to tell the clue and successfully enter and authenticate
+
+K9 - If a user selection creates an unexpected change on the page, was the change communicated to the user?
