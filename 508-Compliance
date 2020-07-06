@@ -1,55 +1,59 @@
 508 Compliance Checklist pertaining to WCAG 2.0 requiremnts
 
 Section A: General Visual Checks
-A1 - Is the site free from content that flashes more than 3 times per second?
+A1 - Is the site free from content that flashes more than 3 times per second? Yes
 
-A2 - Can all text be resized up to 200% without degrading quality/understandability?
+A2 - Can all text be resized up to 200% without degrading quality/understandability? No
 
-A3 - Is there more than one way to locate a web page? (Site Search, Site Map, etc.)
+A3 - Is there more than one way to locate a web page? (Site Search, Site Map, etc.) Yes
 
-A4 - Is the order of navigational elements consistent across the site?
+A4 - Is the order of navigational elements consistent across the site? Yes
 
-A5 - Can auto updating, moving, blinking, and scrolling content be paused or adjusted?
+A5 - Can auto updating, moving, blinking, and scrolling content be paused or adjusted? Yes
 
-A6 - Are all site controlled documents (PDF, Word, etc) fully accessible or have a conforming alternate version exit disclaimer icon?
+A6 - Are all site controlled documents (PDF, Word, etc) fully accessible or have a conforming alternate version exit disclaimer icon? Yes
 
-A7 - If there are any time limits on interacting with content, can they be turned off, adjusted, or extended?
+A7 - If there are any time limits on interacting with content, can they be turned off, adjusted, or extended? Yes
 
-A8 - Are operational instructions that rely on sensory characteristics avoided? (Ex. Click the square, blue button to continue)
+A8 - Are operational instructions that rely on sensory characteristics avoided? (Ex. Click the square, blue button to continue) Yes
 
-A9 - Is the site free from pages that re-direct after a timeout?
+A9 - Is the site free from pages that re-direct after a timeout? No
 
-A10 - Are elements with the same functionality consistently identified across pages?
+A10 - Are elements with the same functionality consistently identified across pages? Yes
 
-A11 - Do headings accurately describe the content they visually define?
+A11 - Do headings accurately describe the content they visually define? Yes
+
+Score: 9/11
 
 Section B: General Code Inspection
-B1 - Is the default language of the page set?
+B1 - Is the default language of the page set? No
 
-B2 - Has the language been properly set for foreign words or phrases?
+B2 - Has the language been properly set for foreign words or phrases? No
  
-B3 - Is the page free from major errors defined in W3 Failure #70 exit disclaimer icon when run against an HTML validator exit disclaimer icon?
+B3 - Is the page free from major errors defined in W3 Failure #70 exit disclaimer icon when run against an HTML validator exit disclaimer icon? No
 
-B4 - Are duplicate ID values on the same page avoided?
+B4 - Are duplicate ID values on the same page avoided? Yes
 
-B5 - With styles disabled, is the reading order of the content logical?
+B5 - With styles disabled, is the reading order of the content logical? Yes
 
-B6 - Do all frames have a title attribute that accurately defines the content?
+B6 - Do all frames have a title attribute that accurately defines the content? Yes
  
-B7 - Does the page have a title attribute that accurately defines the content?
+B7 - Does the page have a title attribute that accurately defines the content? Yes
 
-B8 - Does content intended to be accessible by assistive technology refrain from using display:none or aria-hidden=true?
+B8 - Does content intended to be accessible by assistive technology refrain from using display:none or aria-hidden=true? Yes
 
-B9 - If ARIA is present, does the ARIA coding both meet ARIA specifications and give an accurate representation of the content?
+B9 - If ARIA is present, does the ARIA coding both meet ARIA specifications and give an accurate representation of the content? Yes
 
-B10 - Are Fieldset tags only used for form fields? (Not to make a box around a piece of content)?
+B10 - Are Fieldset tags only used for form fields? (Not to make a box around a piece of content)? Yes
+
+Score: 7/10
 
 Section C: Keyboard Navigation
-C1 - Are all elements that can be operated by a mouse also able to be operated by keyboard?
+C1 - Are all elements that can be operated by a mouse also able to be operated by keyboard? No
 
-C2 - When tabbing through the page, do all elements have a clear visual indication that they have focus?
+C2 - When tabbing through the page, do all elements have a clear visual indication that they have focus? Yes
 
-C3 - When tabbing the page, are keyboard traps avoided?
+C3 - When tabbing the page, are keyboard traps avoided? 
 
 C4 - Is the tab order of the page logical?
 
