@@ -53,18 +53,22 @@ C1 - Are all elements that can be operated by a mouse also able to be operated b
 
 C2 - When tabbing through the page, do all elements have a clear visual indication that they have focus? Yes
 
-C3 - When tabbing the page, are keyboard traps avoided? 
+C3 - When tabbing the page, are keyboard traps avoided? No
 
-C4 - Is the tab order of the page logical?
+C4 - Is the tab order of the page logical? Yes
 
-C5 - When tabbing through the page, are changes of context exit disclaimer icon avoided when an element receives focus?
+C5 - When tabbing through the page, are changes of context exit disclaimer icon avoided when an element receives focus? Yes
 
-C6 - Is there a method to bypass blocks of repetitive content (such as navigation)?
+C6 - Is there a method to bypass blocks of repetitive content (such as navigation)? Yes
+
+Score: 4/6
 
 Section D: Sites containing Color
-D1 - Is information conveyed by methods other than color alone?
+D1 - Is information conveyed by methods other than color alone? Yes
 
-D2 - Does all text (with the exception of logos) have a contrast ratio of 4.5:1 or greater no matter the font size?
+D2 - Does all text (with the exception of logos) have a contrast ratio of 4.5:1 or greater no matter the font size? Yes
+
+Score: 2/2
 
 Section E: Sites containing Links
 Not applicable
@@ -79,43 +83,53 @@ Section H: Sites containing Tables
 Not applicable
 
 Section i: Sites containing semantic structure
-i1 - Are all visual bulleted and numbered lists correctly coded with HTML list tags?
+i1 - Are all visual bulleted and numbered lists correctly coded with HTML list tags? Yes
 
-i2 - Are visual headings correctly coded with HTML heading tags? (<h1>, <h2>, etc)
+i2 - Are visual headings correctly coded with HTML heading tags? (<h1>, <h2>, etc) Yes
 
-i3 - Do heading tags follow a logical hierarchical progression?
+i3 - Do heading tags follow a logical hierarchical progression? Yes
 
-i4 - Are heading tags only used on text that defines a section of content?
+i4 - Are heading tags only used on text that defines a section of content? Yes
 
-i5 - Is emphasized or special text correctly coded with HTML heading tags? (<em>, <strong>, <sup>, etc)
+i5 - Is emphasized or special text correctly coded with HTML heading tags? (<em>, <strong>, <sup>, etc) Yes
+
+Score: 5/5
 
 Section J: Sites containing Forms
-J1 - Are all form fields correctly coded with descriptive and accurate labels?
+J1 - Are all form fields correctly coded with descriptive and accurate labels? Yes
 
-J2 - Do grouped form fields have correctly coded fieldset and legend tags?
+J2 - Do grouped form fields have correctly coded fieldset and legend tags? Yes
 
-J3 - Are form validation errors clear and accurately identified in text?
+J3 - Are form validation errors clear and accurately identified in text? Yes
 
-J4 - Is the form free of making a selection when attempting to navigate the options? (only submits when user makes a selection)
+J4 - Is the form free of making a selection when attempting to navigate the options? (only submits when user makes a selection) No
 
-J5 - Are Orphan label tags avoided?
+J5 - Are Orphan label tags avoided? No
+
+Score: 3/5
 
 Section K: Sites containing common elements / dynamic content
 
-K1 - Is the role of an element (eg Button) properly defined , accurate, and communicated to assistive technology?
+K1 - Is the role of an element (eg Button) properly defined , accurate, and communicated to assistive technology? Yes
 
-K2 - Is the state of an element (expanded or collapsed) properly defined , accurate, and communicated to assistive technology?
+K2 - Is the state of an element (expanded or collapsed) properly defined , accurate, and communicated to assistive technology? Yes
 
-K3 - Are modal dialogues exit disclaimer icon able to be used with keyboard alone and assistive technology? Focus management, hiding underlying content, etc.
+K3 - Are modal dialogues exit disclaimer icon able to be used with keyboard alone and assistive technology? Focus management, hiding underlying content, etc. Yes
 
-K4 - Are carousels exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to pause, navigate to individual items, etc.
+K4 - Are carousels exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to pause, navigate to individual items, etc. No
 
-K5 - Are menus exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to expand and navigate subitems
+K5 - Are menus exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to expand and navigate subitems No
 
-K6 - Are expandable/collapsible accordian elements exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to expand and navigate subitems
+K6 - Are expandable/collapsible accordian elements exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to expand and navigate subitems No
 
-K7 - Are Tabbed Interfaces exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to tell active tab and navigate to appropriate content
+K7 - Are Tabbed Interfaces exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to tell active tab and navigate to appropriate content No
 
-K8 - Are CAPTCHA interfaces exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to tell the clue and successfully enter and authenticate
+K8 - Are CAPTCHA interfaces exit disclaimer icon able to be used with keyboard alone and assistive technology? Ability to tell the clue and successfully enter and authenticate Yes
 
-K9 - If a user selection creates an unexpected change on the page, was the change communicated to the user?
+K9 - If a user selection creates an unexpected change on the page, was the change communicated to the user? No
+
+Score: 4/9
+
+Total: 34/48
+
+Biggest takeaway: Not accessible entirely by keyboard
